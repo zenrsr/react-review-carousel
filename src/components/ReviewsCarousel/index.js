@@ -9,17 +9,17 @@ class ReviewsCarousel extends Component {
   increment = () => {
     const {reviewsList} = this.props
     const {count} = this.state
-    this.setState(prevState => ({count: prevState.count + 1}))
-    if (count >= reviewsList.length - 1) {
-      this.setState({count: 0})
+
+    if (count < reviewsList.length - 1) {
+      this.setState(prevState => ({count: prevState.count + 1}))
     }
   }
 
   decrement = () => {
     const {reviewsList} = this.props
     const {count} = this.state
-    if (count === 0) {
-      this.setState({count: reviewsList.length - 1})
+    if (count > 0) {
+      this.setState(prevState => ({count: prevState.count - 1}))
     }
   }
 
